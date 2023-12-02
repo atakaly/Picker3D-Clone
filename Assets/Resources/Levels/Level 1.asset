@@ -14,15 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredObjectCount: 10
   ObjectsInLevel:
-  - LevelObject: {fileID: 5397646632075918677, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
+  - LevelObject: {fileID: 168640378741247826, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
       type: 3}
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0}
-  - LevelObject: {fileID: 1134523083023951739, guid: f8e7689c44cd6174e8199aba40cc5c0b,
-      type: 3}
-    Position: {x: 0, y: -1.25, z: 132}
-    Rotation: {x: 0, y: 0, z: 0}
-  - LevelObject: {fileID: 1134523083023951739, guid: f8e7689c44cd6174e8199aba40cc5c0b,
+    Position: {x: 0, y: -0.83, z: 59.9}
+    Rotation: {x: -0, y: 0, z: 0}
+  - LevelObject: {fileID: 1534844307596520010, guid: f8e7689c44cd6174e8199aba40cc5c0b,
       type: 3}
     Position: {x: 0, y: -1.25, z: 132}
-    Rotation: {x: 0, y: 0, z: 0}
+    Rotation: {x: -0, y: 0, z: 0}

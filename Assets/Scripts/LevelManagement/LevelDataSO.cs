@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Picker3D.Gameplay;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +11,11 @@ namespace Picker3D.LevelEditor
         [Serializable]
         public struct InLevelObjectData
         {
-            public GameObject LevelObject;
+            public LevelObjectBase LevelObject;
             public Vector3 Position;
             public Vector3 Rotation;
         }
-
+        
         public int RequiredObjectCount = 10;
         public List<InLevelObjectData> ObjectsInLevel;
     }

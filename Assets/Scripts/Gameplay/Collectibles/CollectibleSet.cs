@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Picker3D.LevelEditor;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Picker3D.Gameplay.Collectibles
 {
-    public class CollectibleSet : MonoBehaviour
+    public class CollectibleSet : LevelObjectBase
     {
         [SerializeField] private List<CollectibleItem> m_Collectibles;
         [SerializeField] private MeshType m_MeshType;

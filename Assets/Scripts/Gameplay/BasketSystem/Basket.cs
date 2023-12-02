@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Picker3D.Gameplay.BasketSystem
 {
-    public class Basket : MonoBehaviour
+    public class Basket : LevelObjectBase
     {
         [SerializeField] private TextMeshPro m_TextMesh;
 
