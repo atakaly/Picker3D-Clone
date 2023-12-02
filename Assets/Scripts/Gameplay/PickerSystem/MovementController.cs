@@ -19,6 +19,7 @@ namespace Picker3D.Gameplay.PickerSystem
         private void Awake()
         {
             m_Rigidbody = GetComponent<Rigidbody>();
+            Stop();
         }
 
         private void Update()

@@ -6,11 +6,6 @@ namespace Picker3D.UI
     {
         [SerializeField] private GameObject panel;
 
-        private void Start()
-        {
-            Hide();
-        }
-
         public virtual void Show()
         {
             panel.SetActive(true);
