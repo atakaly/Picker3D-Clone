@@ -2,6 +2,7 @@
 using Picker3D.LevelEditor;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Picker3D.LevelManagement
 {
@@ -26,7 +27,12 @@ namespace Picker3D.LevelManagement
 
         public void LoadCurrentLevel()
         {
-            var levelData = m_GlobalGameData.AllLevelDatas[GetCurrentLevelIndex()];
+            int currentLevelIndex = GetCurrentLevelIndex();
+            int levelsCount = m_GlobalGameData.AllLevelDatas.Count;
+            var levelDataIndex = currentLevelIndex >= levelsCount ? Random.Range(0, levelsCount) : currentLevelIndex;
+
+            var levelData = m_GlobalGameData.AllLevelDatas[levelDataIndex];
+
             CreateLevel(levelData);
         }
 
