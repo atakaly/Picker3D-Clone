@@ -6,13 +6,13 @@ namespace Picker3D.Gameplay.PickerSystem
 {
     public class Picker : MonoBehaviour
     {
-        private MovementController m_MovementController;
+        public MovementController MovementController { get; private set; }
 
         private List<CollectibleItem> m_CollectibleItems;
 
         private void Awake()
         {
-            m_MovementController = GetComponent<MovementController>();
+            MovementController = GetComponent<MovementController>();
             m_CollectibleItems = new List<CollectibleItem>();
         }
 
@@ -38,7 +38,7 @@ namespace Picker3D.Gameplay.PickerSystem
 
         public void OnBasketReached()
         {
-            m_MovementController.Stop();
+            MovementController.Stop();
 
             for (int i = 0; i < m_CollectibleItems.Count; i++)
             {
@@ -48,7 +48,7 @@ namespace Picker3D.Gameplay.PickerSystem
 
         public void OnBasketSuccess()
         {
-            m_MovementController.Move();
+            MovementController.Move();
         }
     }
 }

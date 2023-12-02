@@ -1,4 +1,6 @@
-﻿using Picker3D.LevelManagement;
+﻿using Picker3D.Gameplay;
+using Picker3D.LevelManagement;
+using Picker3D.UI;
 using Zenject;
 
 namespace Picker3D.Installers
@@ -11,6 +13,13 @@ namespace Picker3D.Installers
                 .AsSingle();
 
             Container.BindInterfacesAndSelfTo<LevelManager>()
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<UIManager>()
+                .FromComponentInHierarchy()
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<GameManager>()
                 .AsSingle();
         }
     }

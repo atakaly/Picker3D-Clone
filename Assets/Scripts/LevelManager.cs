@@ -54,7 +54,7 @@ namespace Picker3D.LevelManagement
             }
         }
 
-        private int GetCurrentLevelIndex()
+        public static int GetCurrentLevelIndex()
         {
             return PlayerPrefs.GetInt(CURRENT_LEVEL_PREF_NAME, 0);
         }
