@@ -6,13 +6,17 @@ namespace Picker3D.Gameplay.Collectibles
     {
         [SerializeField] private float m_ForceMultiplier;
 
+        private CollectibleMeshChanger m_CollectibleMeshChanger;
         private Rigidbody m_Rigidbody;
 
         private bool m_IsCollectible = true;
         public bool IsCollectible => m_IsCollectible;
 
+        public CollectibleMeshChanger CollectibleMeshChanger => m_CollectibleMeshChanger;
+
         private void Awake()
         {
+            m_CollectibleMeshChanger = GetComponent<CollectibleMeshChanger>();
             m_Rigidbody = GetComponent<Rigidbody>();
         }
 
