@@ -41,7 +41,9 @@ namespace Picker3D.Gameplay.BasketSystem
             m_CurrentCollectedBallCount++;
             if(m_CurrentCollectedBallCount >= m_RequiredBallCount)
             {
-                platformObject.DOLocalMove(platformEndPosition, 1.2f)
+                platformObject.DOLocalMove(platformEndPosition, 1f)
+                    .SetDelay(0.5f)
+                    .SetEase(Ease.OutBack)
                     .OnComplete(() =>
                     {
                         OnSuccess?.Invoke();

@@ -26,11 +26,13 @@ namespace Picker3D.Gameplay.PickerSystem
             if (Input.GetMouseButtonDown(0))
             {
                 isDragging = true;
+                m_Rigidbody.velocity = Vector3.zero;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
                 isDragging = false;
+                m_Rigidbody.velocity = Vector3.zero;
             }
 
             if (isDragging)
