@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 72638141}
   - component: {fileID: 72638140}
+  - component: {fileID: 72638142}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -152,7 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: 7579a76df12654f4c825917fcb7d0104, type: 2}
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 72638142}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -184,6 +186,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72638142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72638139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c38a08772fb60e4ebcb982fa9a95059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &562454865
 GameObject:
   m_ObjectHideFlags: 3
@@ -569,7 +583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1074458280
 Transform:
   m_ObjectHideFlags: 0
@@ -609,7 +623,7 @@ PrefabInstance:
     - target: {fileID: 1134523083023951738, guid: f8e7689c44cd6174e8199aba40cc5c0b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 132
+      value: 131.93
       objectReference: {fileID: 0}
     - target: {fileID: 1134523083023951738, guid: f8e7689c44cd6174e8199aba40cc5c0b,
         type: 3}
@@ -650,6 +664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Basket
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134523083023951739, guid: f8e7689c44cd6174e8199aba40cc5c0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e7689c44cd6174e8199aba40cc5c0b, type: 3}
@@ -769,6 +788,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectibleSet
       objectReference: {fileID: 0}
+    - target: {fileID: 5330336854258717456, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5330336854258717458, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
         type: 3}
       propertyPath: m_RootOrder
@@ -837,6 +861,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397646632075918677, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5397646632075918681, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
         type: 3}

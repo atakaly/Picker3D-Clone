@@ -19,3 +19,7 @@ MonoBehaviour:
     Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   - MeshType: 2
     Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  AllLevelDatas:
+  - {fileID: 11400000, guid: 17c8993c8508c77489164d5d8e6bb734, type: 2}
+  - {fileID: 11400000, guid: 529cbf9ba6ce2064e86d67afda753417, type: 2}
+  - {fileID: 11400000, guid: 3baa75fb2ae5fc94cb055028c127be4c, type: 2}

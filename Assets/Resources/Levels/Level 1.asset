@@ -14,11 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredObjectCount: 10
   ObjectsInLevel:
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: -3.4815826, y: 0.09, z: 109.264435}
+    Rotation: {x: -0, y: 0, z: 0}
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: 4.032936, y: 0.09, z: 89.156}
+    Rotation: {x: -0, y: 0, z: 0}
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: -0.3853798, y: 0.09, z: 53.35267}
+    Rotation: {x: -0, y: 0, z: 0}
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: -0.19104385, y: 0.09, z: 24.295898}
+    Rotation: {x: -0, y: 0, z: 0}
+  - LevelObject: {fileID: 1534844307596520010, guid: f8e7689c44cd6174e8199aba40cc5c0b,
+      type: 3}
+    Position: {x: 0, y: -1.25, z: 276.55}
+    Rotation: {x: -0, y: 0, z: 0}
   - LevelObject: {fileID: 168640378741247826, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
       type: 3}
-    Position: {x: 0, y: -0.83, z: 59.9}
+    Position: {x: 0, y: -0.83, z: 204.4}
     Rotation: {x: -0, y: 0, z: 0}
   - LevelObject: {fileID: 1534844307596520010, guid: f8e7689c44cd6174e8199aba40cc5c0b,
       type: 3}
     Position: {x: 0, y: -1.25, z: 132}
+    Rotation: {x: -0, y: 0, z: 0}
+  - LevelObject: {fileID: 168640378741247826, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
+      type: 3}
+    Position: {x: 0, y: -0.83, z: 59.9}
     Rotation: {x: -0, y: 0, z: 0}
