@@ -18,5 +18,19 @@ namespace Picker3D.LevelEditor
         
         public int RequiredObjectCount = 10;
         public List<InLevelObjectData> ObjectsInLevel;
+
+        public float GetLevelZLength()
+        {
+            for (int i = 0; i < ObjectsInLevel.Count; i++)
+            {
+                if (ObjectsInLevel[i].LevelObject is LevelEnd)
+                {
+                    return ObjectsInLevel[i].Position.z;
+                }
+            }
+
+            return 0;
+        }
+
     }
 }

@@ -12,11 +12,14 @@ namespace Picker3D.Gameplay
 
         public Picker m_Picker;
 
+        private LevelManager m_LevelManager;
+
         [Inject]
-        public void Construct(UIManager uiManager, Picker picker)
-        {
+        public void Construct(UIManager uiManager, Picker picker, LevelManager levelManager)
+        { 
             m_UIManager = uiManager;
             m_Picker = picker;
+            m_LevelManager = levelManager;
         }
 
         public void LevelSucceed()
@@ -39,7 +42,8 @@ namespace Picker3D.Gameplay
 
         public void StartNextLevel()
         {
-
+            m_Picker.MovementController.Move();
+            m_LevelManager.ClearPreviousLevel();
         }
 
         public void RestartLevel()
