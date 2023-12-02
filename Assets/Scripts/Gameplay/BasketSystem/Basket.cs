@@ -20,6 +20,8 @@ namespace Picker3D.Gameplay.BasketSystem
         private int m_CurrentCollectedBallCount = 0;
         private int m_RequiredBallCount = 10;
 
+        public bool IsSufficent { get => m_CurrentCollectedBallCount >= m_RequiredBallCount; }
+
         private void Start()
         {
             UpdateTextMesh();
@@ -39,7 +41,7 @@ namespace Picker3D.Gameplay.BasketSystem
         private void OnCollectibleCollect()
         {
             m_CurrentCollectedBallCount++;
-            if(m_CurrentCollectedBallCount >= m_RequiredBallCount)
+            if(IsSufficent)
             {
                 platformObject.DOLocalMove(platformEndPosition, 1f)
                     .SetDelay(0.5f)

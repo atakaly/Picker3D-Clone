@@ -1,4 +1,5 @@
 ﻿using Picker3D.Gameplay.PickerSystem;
+using System.Collections;
 using UnityEngine;
 
 namespace Picker3D.Gameplay.BasketSystem
@@ -15,7 +16,7 @@ namespace Picker3D.Gameplay.BasketSystem
             m_Basket = GetComponentInParent<Basket>();
         }
 
-        private void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter(Collider other)
         {
             if (m_IsTriggered) return;
 
@@ -23,9 +24,26 @@ namespace Picker3D.Gameplay.BasketSystem
             if (picker == null) return;
 
             m_Picker = picker;
-            picker.OnBasketReached();
-            m_Basket.OnSuccess += Basket_OnSuccess;
             m_IsTriggered = true;
+            picker.OnBasketReached(m_Basket);
+            m_Basket.OnSuccess += Basket_OnSuccess;
+
+            StartCoroutine(BasketRoutine());
+        }
+
+        private IEnumerator BasketRoutine()
+        {
+            while (m_Picker.CollectibleItems.Count > 0)
+            {
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(1f);
+
+            if(!m_Basket.IsSufficent)
+            {
+                GameManager.instance.LevelFailed();
+            }
         }
 
         private void Basket_OnSuccess()

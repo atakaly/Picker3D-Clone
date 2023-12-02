@@ -13,6 +13,16 @@ namespace Picker3D.LevelManagement
             objectPool = new Dictionary<LevelObjectBase, Queue<LevelObjectBase>>();
         }
 
+        public void AddObjectToPool(LevelObjectBase prefab, LevelObjectBase obj)
+        {
+            if (!objectPool.ContainsKey(prefab))
+            {
+                objectPool[prefab] = new Queue<LevelObjectBase>();
+            }
+
+            objectPool[prefab].Enqueue(obj);
+        }
+
         public LevelObjectBase GetObjectFromPool(LevelObjectBase prefab)
         {
             if (objectPool.ContainsKey(prefab) && objectPool[prefab].Count > 0)

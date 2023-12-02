@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using Picker3D.Gameplay.BasketSystem;
+using UnityEngine;
 
 namespace Picker3D.Gameplay.Collectibles
 {
@@ -26,9 +28,9 @@ namespace Picker3D.Gameplay.Collectibles
             gameObject.SetActive(false);
         }
 
-        public void AddForce()
+        public void MoveToBasket(Basket basket)
         {
-            m_Rigidbody.AddForce(m_ForceMultiplier * (Vector3.forward + Vector3.up));
+            m_Rigidbody.DOMoveZ(basket.transform.position.z, 0.7f);
         }
     }
 }

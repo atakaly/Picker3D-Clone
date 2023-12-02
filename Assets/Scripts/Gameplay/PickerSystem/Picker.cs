@@ -1,4 +1,6 @@
-﻿using Picker3D.Gameplay.Collectibles;
+﻿using DG.Tweening;
+using Picker3D.Gameplay.BasketSystem;
+using Picker3D.Gameplay.Collectibles;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,21 +10,21 @@ namespace Picker3D.Gameplay.PickerSystem
     {
         public MovementController MovementController { get; private set; }
 
-        private List<CollectibleItem> m_CollectibleItems;
+        public List<CollectibleItem> CollectibleItems { get; private set; }
 
         private void Awake()
         {
             MovementController = GetComponent<MovementController>();
-            m_CollectibleItems = new List<CollectibleItem>();
+            CollectibleItems = new List<CollectibleItem>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if(other.TryGetComponent(out CollectibleItem collectible))
             {
-                if (m_CollectibleItems.Contains(collectible)) return;
+                if (CollectibleItems.Contains(collectible)) return;
 
-                m_CollectibleItems.Add(collectible);
+                CollectibleItems.Add(collectible);
             }
         }
 
@@ -30,19 +32,19 @@ namespace Picker3D.Gameplay.PickerSystem
         {
             if (other.TryGetComponent(out CollectibleItem collectible))
             {
-                if (!m_CollectibleItems.Contains(collectible)) return;
+                if (!CollectibleItems.Contains(collectible)) return;
 
-                m_CollectibleItems.Add(collectible);
+                CollectibleItems.Remove(collectible);
             }
         }
 
-        public void OnBasketReached()
+        public void OnBasketReached(Basket basket)
         {
             MovementController.Stop();
 
-            for (int i = 0; i < m_CollectibleItems.Count; i++)
+            for (int i = 0; i < CollectibleItems.Count; i++)
             {
-                m_CollectibleItems[i].AddForce();
+                CollectibleItems[i].MoveToBasket(basket);
             }
         }
 
