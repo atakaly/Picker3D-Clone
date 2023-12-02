@@ -22,7 +22,7 @@ namespace Picker3D.Gameplay.Collectibles
 
         public void UpdateMesh(MeshType meshType)
         {
-            m_MeshFilter.mesh = GetMeshFromType(meshType);
+            //m_MeshFilter.mesh = GetMeshFromType(meshType);
         }
 
         private Mesh GetMeshFromType(MeshType meshType)

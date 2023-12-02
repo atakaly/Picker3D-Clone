@@ -23,6 +23,7 @@ namespace Picker3D.Gameplay.Collectibles
         public void OnCollected()
         {
             m_IsCollectible = false;
+            gameObject.SetActive(false);
         }
 
         public void AddForce()

@@ -45,5 +45,10 @@ namespace Picker3D.Gameplay.PickerSystem
                 m_CollectibleItems[i].AddForce();
             }
         }
+
+        public void OnBasketSuccess()
+        {
+            m_MovementController.Move();
+        }
     }
 }
