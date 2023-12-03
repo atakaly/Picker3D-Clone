@@ -17,5 +17,12 @@ namespace Picker3D.Gameplay
             GameManager.instance.LevelSucceed();
             m_IsTriggered = true;
         }
+
+        public override void OnSpawn()
+        {
+            base.OnSpawn();
+
+            m_IsTriggered = false;
+        }
     }
 }

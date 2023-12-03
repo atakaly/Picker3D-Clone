@@ -1,6 +1,5 @@
 ﻿using Picker3D.Installers;
 using Picker3D.LevelEditor;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -74,7 +73,6 @@ namespace Picker3D.LevelManagement
 
         public void ClearPreviousAndLoadNextLevel()
         {
-            m_CurrentLevel.ClearLevel();
             ReturnLevelToPool(m_CurrentLevel);
 
             m_CurrentLevel = m_NextLevel;
@@ -110,6 +108,7 @@ namespace Picker3D.LevelManagement
         public void ReturnLevelToPool(Level level)
         {
             level.ResetLevel();
+            level.ClearLevel();
             level.gameObject.SetActive(false);
             levelPool.Add(level);
         }

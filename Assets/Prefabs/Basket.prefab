@@ -240,6 +240,7 @@ MonoBehaviour:
   m_TextMesh: {fileID: 5058187366695024558}
   platformObject: {fileID: 1217761182217881361}
   platformEndPosition: {x: 0, y: 0.42, z: 0}
+  m_RequiredBallCount: 10
 --- !u!65 &5122605619217904699
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -280,8 +281,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134523083315208966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.08, y: 0.18, z: 0}
-  m_LocalScale: {x: 0.700029, y: 1.523488, z: 14.471259}
+  m_LocalPosition: {x: 7.08, y: 1.382, z: 0}
+  m_LocalScale: {x: 0.700029, y: 3.9265397, z: 14.471266}
   m_Children: []
   m_Father: {fileID: 1134523084196670977}
   m_RootOrder: 1
@@ -373,8 +374,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134523083337707070}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.04507392, y: 0.18000007, z: 7.044525}
-  m_LocalScale: {x: 0.700029, y: 1.523488, z: 14.471259}
+  m_LocalPosition: {x: -0.04507392, y: 1.478, z: 7.044525}
+  m_LocalScale: {x: 0.700029, y: 4.119063, z: 14.471272}
   m_Children: []
   m_Father: {fileID: 1134523084196670977}
   m_RootOrder: 3
@@ -466,8 +467,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134523083345439922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.01, y: 0.18, z: 0}
-  m_LocalScale: {x: 0.700029, y: 1.523488, z: 14.471259}
+  m_LocalPosition: {x: -7.01, y: 1.323, z: 0}
+  m_LocalScale: {x: 0.700029, y: 3.8102639, z: 14.471266}
   m_Children: []
   m_Father: {fileID: 1134523084196670977}
   m_RootOrder: 2

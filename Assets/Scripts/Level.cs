@@ -29,7 +29,7 @@ namespace Picker3D.LevelManagement
             for (int i = 0; i < m_LevelData.ObjectsInLevel.Count; i++)
             {
                 var prefab = m_LevelData.ObjectsInLevel[i].LevelObject;
-                var newPosition = m_LevelData.ObjectsInLevel[i].Position;
+                var newPosition = m_LevelData.ObjectsInLevel[i].Position + transform.position;
                 var newRotation = Quaternion.Euler(m_LevelData.ObjectsInLevel[i].Rotation);
                 var requiredBallCount = m_LevelData.ObjectsInLevel[i].RequiredBallCount;
                 var meshType = m_LevelData.ObjectsInLevel[i].meshType;
@@ -54,8 +54,8 @@ namespace Picker3D.LevelManagement
                     collectibleSet.MeshType = meshType;
                 }
 
-                newObject.transform.SetPositionAndRotation(newPosition, newRotation);
                 newObject.transform.SetParent(transform);
+                newObject.transform.SetPositionAndRotation(newPosition, newRotation);
                 levelObjects.Add(newObject);
             }
         }
@@ -75,7 +75,7 @@ namespace Picker3D.LevelManagement
                 var levelObjectBase = levelObjects[i];
 
                 System.Type objectType = levelObjectBase.GetType();
-                GameManager.instance.LevelObjectPool.ReturnObjectToPool(objectType, levelObjectBase);
+                m_LevelObjectPool.ReturnObjectToPool(objectType, levelObjectBase);
                 levelObjectBase.transform.SetParent(null);
             }
 

@@ -13,13 +13,25 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   ObjectsInLevel:
+  - LevelObject: {fileID: 168640378741247826, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
+      type: 3}
+    Position: {x: 0, y: -0.83, z: 59.9}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 0
+  - LevelObject: {fileID: 1534844307596520010, guid: f8e7689c44cd6174e8199aba40cc5c0b,
+      type: 3}
+    Position: {x: 0, y: -1.25, z: 132.3}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 15
+    meshType: 0
   - LevelObject: {fileID: 7766721950418822496, guid: 7c27516d44b0fa149842e3bd8aa2e6ac,
       type: 3}
     Position: {x: 0, y: -0.83, z: 312.6}
     Rotation: {x: -0, y: 0, z: 0}
     RequiredBallCount: 0
     meshType: 0
-  - LevelObject: {fileID: 6426631219622700031, guid: 3d5e469dc545a32458ba2cf4a74bb250,
+  - LevelObject: {fileID: 2301891961369634739, guid: 3d5e469dc545a32458ba2cf4a74bb250,
       type: 3}
     Position: {x: 0, y: -0.83, z: 298.35}
     Rotation: {x: -0, y: 0, z: 0}
@@ -27,19 +39,7 @@ MonoBehaviour:
     meshType: 0
   - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
       type: 3}
-    Position: {x: -3.4815826, y: 0.09, z: 109.264435}
-    Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 0
-    meshType: 0
-  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
-      type: 3}
-    Position: {x: 4.032936, y: 0.09, z: 89.156}
-    Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 0
-    meshType: 0
-  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
-      type: 3}
-    Position: {x: -0.3853798, y: 0.09, z: 53.35267}
+    Position: {x: -0.3853798, y: 0.09, z: 59.2}
     Rotation: {x: -0, y: 0, z: 0}
     RequiredBallCount: 0
     meshType: 0
@@ -53,19 +53,13 @@ MonoBehaviour:
       type: 3}
     Position: {x: 0, y: -1.25, z: 276.55}
     Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 17
+    RequiredBallCount: 15
     meshType: 0
   - LevelObject: {fileID: 168640378741247826, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
       type: 3}
     Position: {x: 0, y: -0.83, z: 204.4}
     Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 63
-    meshType: 0
-  - LevelObject: {fileID: 1534844307596520010, guid: f8e7689c44cd6174e8199aba40cc5c0b,
-      type: 3}
-    Position: {x: 0, y: -1.25, z: 132}
-    Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 10
+    RequiredBallCount: 0
     meshType: 0
   - LevelObject: {fileID: 168640378741247826, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
       type: 3}
@@ -73,3 +67,33 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
     RequiredBallCount: 0
     meshType: 0
+  - LevelObject: {fileID: 5330336854258717457, guid: 646a032db25ae0240b5350b5f51f6a6f,
+      type: 3}
+    Position: {x: 1, y: -0.07999998, z: 99.00934}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: b4e6bc037a0adc64b89386e6c0e30f8c,
+      type: 3}
+    Position: {x: -2.9, y: -0.08000001, z: 158.62009}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: b4e6bc037a0adc64b89386e6c0e30f8c,
+      type: 3}
+    Position: {x: 2, y: -0.08000001, z: 184.1}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: b4e6bc037a0adc64b89386e6c0e30f8c,
+      type: 3}
+    Position: {x: -3.8, y: -0.08000001, z: 218.9}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: b4e6bc037a0adc64b89386e6c0e30f8c,
+      type: 3}
+    Position: {x: 2.3, y: -0.08000001, z: 247.8}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
