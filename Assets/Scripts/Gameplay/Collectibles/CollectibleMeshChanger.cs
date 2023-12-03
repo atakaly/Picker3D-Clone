@@ -5,14 +5,9 @@ namespace Picker3D.Gameplay.Collectibles
 {
     public class CollectibleMeshChanger : MonoBehaviour
     {
-        private MeshFilter m_MeshFilter;
+        [SerializeField] private MeshFilter m_MeshFilter;
 
         public List<MeshTypePair> MeshTypePairs;
-
-        private void Awake()
-        {
-            m_MeshFilter = GetComponent<MeshFilter>();
-        }
 
         public void UpdateMesh(MeshType meshType)
         {

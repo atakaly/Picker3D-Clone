@@ -15,18 +15,11 @@ namespace Picker3D.LevelEditor
             public LevelObjectBase LevelObject;
             public Vector3 Position;
             public Vector3 Rotation;
-        }
-
-        [Serializable]
-        public struct LevelCollectiblesData
-        {
-            public InLevelObjectData inLevelObjectData;
+            public int RequiredBallCount;
             public MeshType meshType;
         }
         
-        public int RequiredObjectCount = 10;
         public List<InLevelObjectData> ObjectsInLevel;
-        public List<LevelCollectiblesData> CollectiblesInLevel;
 
         public float GetLevelZDistance()
         {

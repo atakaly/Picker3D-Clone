@@ -10,6 +10,20 @@ namespace Picker3D.Gameplay.Collectibles
 
         private Vector3[] collectiblePositions;
 
+        public MeshType MeshType
+        {
+            get
+            {
+                return m_MeshType;
+            }
+
+            set 
+            { 
+                m_MeshType = value;
+                UpdateMeshes();
+            }
+        }
+
         private void Awake()
         {
             collectiblePositions = new Vector3[m_Collectibles.Count];
@@ -20,13 +34,21 @@ namespace Picker3D.Gameplay.Collectibles
             }
         }
 
+        public void UpdateMeshes()
+        {
+            for (int i = 0; i < m_Collectibles.Count; i++)
+            {
+                m_Collectibles[i].CollectibleMeshChanger.UpdateMesh(m_MeshType);
+            }
+        }
+
         public override void OnSpawn()
         {
             base.OnSpawn();
 
+            UpdateMeshes();
             for (int i = 0; i < m_Collectibles.Count; i++)
             {
-                m_Collectibles[i].CollectibleMeshChanger.UpdateMesh(m_MeshType);
                 m_Collectibles[i].transform.localPosition = collectiblePositions[i];
                 m_Collectibles[i].ResetItem();
             }

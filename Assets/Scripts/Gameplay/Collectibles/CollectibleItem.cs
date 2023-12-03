@@ -6,7 +6,7 @@ namespace Picker3D.Gameplay.Collectibles
 {
     public class CollectibleItem : MonoBehaviour, ICollectible
     {
-        private CollectibleMeshChanger m_CollectibleMeshChanger;
+        [SerializeField] private CollectibleMeshChanger m_CollectibleMeshChanger;
         private Rigidbody m_Rigidbody;
 
         private bool m_IsCollectible = true;
@@ -16,7 +16,6 @@ namespace Picker3D.Gameplay.Collectibles
 
         private void Awake()
         {
-            m_CollectibleMeshChanger = GetComponent<CollectibleMeshChanger>();
             m_Rigidbody = GetComponent<Rigidbody>();
         }
 

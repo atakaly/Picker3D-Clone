@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4625bc22958c59748abe7e066f10215f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CollectibleMeshChanger: {fileID: 1136702859068835077}
 --- !u!114 &1136702859068835077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00edca47353d1e45b2c735c0ec5b4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MeshFilter: {fileID: 1136702859068835078}
   MeshTypePairs:
   - MeshType: 0
     Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}

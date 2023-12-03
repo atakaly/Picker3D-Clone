@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Picker3D.Gameplay.BasketSystem;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -15,7 +16,11 @@ namespace Picker3D.LevelEditor
             DrawDefaultInspector();
 
             if (currentLevelData == null)
-                currentLevelData = (LevelDataSO)target;   
+                currentLevelData = (LevelDataSO)target;
+
+            GUILayout.Space(10);
+
+            ShowBasketFields(currentLevelData);
 
             GUILayout.Space(10);
 
@@ -23,13 +28,6 @@ namespace Picker3D.LevelEditor
             {
                 EditLevel((LevelDataSO)target);
                 currentLevelData = (LevelDataSO)target;
-            }
-
-            GUILayout.Space(10);
-
-            if (GUILayout.Button("Save Level"))
-            {
-                SaveLevelChanges();
             }
         }
 
@@ -56,6 +54,19 @@ namespace Picker3D.LevelEditor
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+        }
+
+        private static void ShowBasketFields(LevelDataSO levelData)
+        {
+            for (int i = 0; i < levelData.ObjectsInLevel.Count; i++)
+            {
+                var objData = levelData.ObjectsInLevel[i];
+                if (objData.LevelObject is Basket)
+                {
+                    GUILayout.Space(5);
+                    objData.RequiredBallCount = EditorGUILayout.IntField("Basket Required Ball Count:", objData.RequiredBallCount);
+                }
+            }
         }
     }
 }

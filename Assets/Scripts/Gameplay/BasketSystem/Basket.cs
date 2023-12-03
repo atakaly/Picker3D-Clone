@@ -21,15 +21,28 @@ namespace Picker3D.Gameplay.BasketSystem
 
         private Vector3 platformStartPosition;
 
+        [SerializeField] private int m_RequiredBallCount = 10;
+
+        public int RequiredBallCount
+        {
+            get
+            {
+                return m_RequiredBallCount;
+            }
+            set
+            {
+                m_RequiredBallCount = value;
+                UpdateTextMesh();
+            }
+        }
+
         private int m_CurrentCollectedBallCount = 0;
-        private int m_RequiredBallCount = 10;
 
         public bool IsSufficent { get => m_CurrentCollectedBallCount >= m_RequiredBallCount; }
 
         private void Awake()
         {
             platformStartPosition = platformObject.localPosition;
-            UpdateTextMesh();
             basketTrigger = GetComponentInChildren<BasketTrigger>();
         }
 
@@ -69,7 +82,6 @@ namespace Picker3D.Gameplay.BasketSystem
             basketTrigger.IsTriggered = false;
 
             m_CurrentCollectedBallCount = 0;
-            m_RequiredBallCount = 10;
 
             UpdateTextMesh();
         }

@@ -1,4 +1,6 @@
 ﻿using Picker3D.Gameplay;
+using Picker3D.Gameplay.BasketSystem;
+using Picker3D.Gameplay.Collectibles;
 using Picker3D.LevelEditor;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +31,8 @@ namespace Picker3D.LevelManagement
                 var prefab = m_LevelData.ObjectsInLevel[i].LevelObject;
                 var newPosition = m_LevelData.ObjectsInLevel[i].Position;
                 var newRotation = Quaternion.Euler(m_LevelData.ObjectsInLevel[i].Rotation);
+                var requiredBallCount = m_LevelData.ObjectsInLevel[i].RequiredBallCount;
+                var meshType = m_LevelData.ObjectsInLevel[i].meshType;
 
                 System.Type objectType = prefab.GetType();
 
@@ -38,6 +42,16 @@ namespace Picker3D.LevelManagement
                 {
                     newObject = Instantiate(prefab);
                     m_LevelObjectPool.AddObjectToPool(objectType, newObject);
+                }
+
+                if(newObject is Basket basket)
+                {
+                    basket.RequiredBallCount = requiredBallCount;
+                }
+
+                if (newObject is CollectibleSet collectibleSet)
+                {
+                    collectibleSet.MeshType = meshType;
                 }
 
                 newObject.transform.SetPositionAndRotation(newPosition, newRotation);
