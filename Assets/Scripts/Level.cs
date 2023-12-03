@@ -34,14 +34,14 @@ namespace Picker3D.LevelManagement
                 var requiredBallCount = m_LevelData.ObjectsInLevel[i].RequiredBallCount;
                 var meshType = m_LevelData.ObjectsInLevel[i].meshType;
 
-                System.Type objectType = prefab.GetType();
+                string uniqueId = prefab.UniquePrefabId;
 
-                var newObject = m_LevelObjectPool.GetObjectFromPool(objectType);
+                var newObject = m_LevelObjectPool.GetObjectFromPool(uniqueId);
 
                 if (newObject == null)
                 {
                     newObject = Instantiate(prefab);
-                    m_LevelObjectPool.AddObjectToPool(objectType, newObject);
+                    m_LevelObjectPool.AddObjectToPool(uniqueId, newObject);
                 }
 
                 if(newObject is Basket basket)
@@ -74,8 +74,8 @@ namespace Picker3D.LevelManagement
             {
                 var levelObjectBase = levelObjects[i];
 
-                System.Type objectType = levelObjectBase.GetType();
-                m_LevelObjectPool.ReturnObjectToPool(objectType, levelObjectBase);
+                string uniqueId = levelObjectBase.UniquePrefabId;
+                m_LevelObjectPool.ReturnObjectToPool(uniqueId, levelObjectBase);
                 levelObjectBase.transform.SetParent(null);
             }
 

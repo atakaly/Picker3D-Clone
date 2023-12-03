@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea16f06eda237994e97dbfd560262d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UniquePrefabId: basket
   m_TextMesh: {fileID: 5058187366695024558}
   platformObject: {fileID: 1217761182217881361}
   platformEndPosition: {x: 0, y: 0.42, z: 0}

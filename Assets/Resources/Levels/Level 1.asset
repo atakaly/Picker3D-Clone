@@ -19,7 +19,7 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
     RequiredBallCount: 0
     meshType: 0
-  - LevelObject: {fileID: 2301891961369634739, guid: 3d5e469dc545a32458ba2cf4a74bb250,
+  - LevelObject: {fileID: -8379822274061267898, guid: 3d5e469dc545a32458ba2cf4a74bb250,
       type: 3}
     Position: {x: 0, y: -0.83, z: 298.35}
     Rotation: {x: -0, y: 0, z: 0}

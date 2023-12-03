@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eec20434731e774f80d85b32d2e7333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UniquePrefabId: collectible_set_triangle
   m_Collectibles:
   - {fileID: 5330336853577370658}
   - {fileID: 5114760127602032495}

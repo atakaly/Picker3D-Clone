@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2a62ed1d6d47a449ec290403496c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UniquePrefabId: level_end
 --- !u!65 &3394549762723061478
 BoxCollider:
   m_ObjectHideFlags: 0

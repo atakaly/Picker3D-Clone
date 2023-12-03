@@ -7,29 +7,29 @@ namespace Picker3D.LevelManagement
 {
     public class LevelObjectPool : IInitializable
     {
-        private Dictionary<Type, Queue<LevelObjectBase>> objectPool;
+        private Dictionary<string, Queue<LevelObjectBase>> objectPool;
 
         public void Initialize()
         {
-            objectPool = new Dictionary<Type, Queue<LevelObjectBase>>();
+            objectPool = new Dictionary<string, Queue<LevelObjectBase>>();
         }
 
-        public void AddObjectToPool(Type type, LevelObjectBase obj)
+        public void AddObjectToPool(string uniqueId, LevelObjectBase obj)
         {
-            if (!objectPool.ContainsKey(type))
+            if (!objectPool.ContainsKey(uniqueId))
             {
-                objectPool[type] = new Queue<LevelObjectBase>();
+                objectPool[uniqueId] = new Queue<LevelObjectBase>();
             }
 
-            objectPool[type].Enqueue(obj);
+            objectPool[uniqueId].Enqueue(obj);
             obj.OnSpawn();
         }
 
-        public LevelObjectBase GetObjectFromPool(Type type)
+        public LevelObjectBase GetObjectFromPool(string uniqueId)
         {
-            if (objectPool.ContainsKey(type) && objectPool[type].Count > 0)
+            if (objectPool.ContainsKey(uniqueId) && objectPool[uniqueId].Count > 0)
             {
-                var objQueue = objectPool[type];
+                var objQueue = objectPool[uniqueId];
                 foreach (var obj in objQueue)
                 {
                     if (!obj.gameObject.activeInHierarchy)
@@ -44,17 +44,17 @@ namespace Picker3D.LevelManagement
             return null;
         }
 
-        public void ReturnObjectToPool(Type type, LevelObjectBase obj)
+        public void ReturnObjectToPool(string uniqueId, LevelObjectBase obj)
         {
             obj.OnDespawn(); 
             obj.gameObject.SetActive(false);
 
-            if (!objectPool.ContainsKey(type))
+            if (!objectPool.ContainsKey(uniqueId))
             {
-                objectPool[type] = new Queue<LevelObjectBase>();
+                objectPool[uniqueId] = new Queue<LevelObjectBase>();
             }
 
-            objectPool[type].Enqueue(obj);
+            objectPool[uniqueId].Enqueue(obj);
         }
     }
 }

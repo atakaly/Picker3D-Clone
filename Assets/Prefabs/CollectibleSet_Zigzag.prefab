@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5330336854258717458}
   - component: {fileID: 5330336854258717457}
   m_Layer: 0
-  m_Name: CollectibleSet_Zikzak
+  m_Name: CollectibleSet_Zigzag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eec20434731e774f80d85b32d2e7333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UniquePrefabId: collectible_set_Zigzag
   m_Collectibles:
   - {fileID: 5114760127602032495}
   - {fileID: 8165552402552048112}
