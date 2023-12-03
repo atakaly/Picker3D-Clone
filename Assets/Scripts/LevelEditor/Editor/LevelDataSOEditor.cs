@@ -57,10 +57,5 @@ namespace Picker3D.LevelEditor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
-
-        private static bool IsThereAnyChange()
-        {
-            return false;
-        }
     }
 }

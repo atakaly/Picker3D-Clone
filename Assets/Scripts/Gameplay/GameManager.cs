@@ -8,23 +8,32 @@ namespace Picker3D.Gameplay
 {
     public class GameManager : MonoSingleton<GameManager>
     {
-        public UIManager m_UIManager { get; private set; }
+        public UIManager UIManager { get; private set; }
+        public LevelObjectPool LevelObjectPool { get; private set; }
 
         public Picker m_Picker;
 
         private LevelManager m_LevelManager;
 
         [Inject]
-        public void Construct(UIManager uiManager, Picker picker, LevelManager levelManager)
+        public void Construct(UIManager uiManager, Picker picker, LevelManager levelManager, LevelObjectPool levelObjectPool)
         { 
-            m_UIManager = uiManager;
+            UIManager = uiManager;
             m_Picker = picker;
             m_LevelManager = levelManager;
+            LevelObjectPool = levelObjectPool;
+        }
+
+        private void Awake()
+        {
+            UIManager.SuccessPanel.OnPlayNextLevelClicked += StartNextLevel;
+            UIManager.FailPanel.OnRestartLevelClicked += RestartLevel;
+            UIManager.StartPanel.OnDragged += StartLevel;
         }
 
         public void LevelSucceed()
         {
-            m_UIManager.SuccessPanel.Show();
+            UIManager.SuccessPanel.Show();
 
             int newLevelIndex = LevelManager.GetCurrentLevelIndex() + 1;
             PlayerPrefs.SetInt(LevelManager.CURRENT_LEVEL_PREF_NAME, newLevelIndex);
@@ -32,7 +41,7 @@ namespace Picker3D.Gameplay
 
         public void LevelFailed()
         {
-            m_UIManager.FailPanel.Show();
+            UIManager.FailPanel.Show();
         }
 
         public void StartLevel()
@@ -43,12 +52,21 @@ namespace Picker3D.Gameplay
         public void StartNextLevel()
         {
             m_Picker.MovementController.Move();
-            m_LevelManager.ClearPreviousLevel();
+            m_LevelManager.ClearPreviousAndLoadNextLevel();
         }
 
         public void RestartLevel()
         {
+            m_Picker.transform.position = m_LevelManager.GetCurrentLevelStartPosition();
+            m_LevelManager.ReinitializeLevels();
+            UIManager.StartPanel.Show();
+        }
 
+        private void OnDestroy()
+        {
+            UIManager.SuccessPanel.OnPlayNextLevelClicked -= StartNextLevel;
+            UIManager.FailPanel.OnRestartLevelClicked -= RestartLevel;
+            UIManager.StartPanel.OnDragged -= StartLevel;
         }
     }
 }

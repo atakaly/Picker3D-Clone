@@ -1,4 +1,5 @@
 ﻿using Picker3D.Gameplay;
+using System;
 using System.Collections.Generic;
 using Zenject;
 
@@ -6,44 +7,54 @@ namespace Picker3D.LevelManagement
 {
     public class LevelObjectPool : IInitializable
     {
-        private Dictionary<LevelObjectBase, Queue<LevelObjectBase>> objectPool;
+        private Dictionary<Type, Queue<LevelObjectBase>> objectPool;
 
         public void Initialize()
         {
-            objectPool = new Dictionary<LevelObjectBase, Queue<LevelObjectBase>>();
+            objectPool = new Dictionary<Type, Queue<LevelObjectBase>>();
         }
 
-        public void AddObjectToPool(LevelObjectBase prefab, LevelObjectBase obj)
+        public void AddObjectToPool(Type type, LevelObjectBase obj)
         {
-            if (!objectPool.ContainsKey(prefab))
+            if (!objectPool.ContainsKey(type))
             {
-                objectPool[prefab] = new Queue<LevelObjectBase>();
+                objectPool[type] = new Queue<LevelObjectBase>();
             }
 
-            objectPool[prefab].Enqueue(obj);
+            objectPool[type].Enqueue(obj);
+            obj.OnSpawn();
         }
 
-        public LevelObjectBase GetObjectFromPool(LevelObjectBase prefab)
+        public LevelObjectBase GetObjectFromPool(Type type)
         {
-            if (objectPool.ContainsKey(prefab) && objectPool[prefab].Count > 0)
+            if (objectPool.ContainsKey(type) && objectPool[type].Count > 0)
             {
-                var obj = objectPool[prefab].Dequeue();
-                obj.gameObject.SetActive(true);
-                return obj;
+                var objQueue = objectPool[type];
+                foreach (var obj in objQueue)
+                {
+                    if (!obj.gameObject.activeInHierarchy)
+                    {
+                        obj.gameObject.SetActive(true);
+                        obj.OnSpawn();
+                        return obj;
+                    }
+                }
             }
+
             return null;
         }
 
-        public void ReturnObjectToPool(LevelObjectBase prefab, LevelObjectBase obj)
+        public void ReturnObjectToPool(Type type, LevelObjectBase obj)
         {
+            obj.OnDespawn(); 
             obj.gameObject.SetActive(false);
 
-            if (!objectPool.ContainsKey(prefab))
+            if (!objectPool.ContainsKey(type))
             {
-                objectPool[prefab] = new Queue<LevelObjectBase>();
+                objectPool[type] = new Queue<LevelObjectBase>();
             }
 
-            objectPool[prefab].Enqueue(obj);
+            objectPool[type].Enqueue(obj);
         }
     }
 }

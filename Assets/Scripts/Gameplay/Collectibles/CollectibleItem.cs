@@ -6,8 +6,6 @@ namespace Picker3D.Gameplay.Collectibles
 {
     public class CollectibleItem : MonoBehaviour, ICollectible
     {
-        [SerializeField] private float m_ForceMultiplier;
-
         private CollectibleMeshChanger m_CollectibleMeshChanger;
         private Rigidbody m_Rigidbody;
 
@@ -25,12 +23,17 @@ namespace Picker3D.Gameplay.Collectibles
         public void OnCollected()
         {
             m_IsCollectible = false;
-            gameObject.SetActive(false);
         }
 
         public void MoveToBasket(Basket basket)
         {
             m_Rigidbody.DOMoveZ(basket.transform.position.z, 0.7f);
+        }
+
+        public void ResetItem()
+        {
+            m_IsCollectible = true;
+            m_Rigidbody.velocity = Vector3.zero;
         }
     }
 }

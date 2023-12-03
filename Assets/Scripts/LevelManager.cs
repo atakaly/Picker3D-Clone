@@ -1,6 +1,6 @@
-﻿using Picker3D.Gameplay;
-using Picker3D.Installers;
+﻿using Picker3D.Installers;
 using Picker3D.LevelEditor;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -13,22 +13,31 @@ namespace Picker3D.LevelManagement
         public const string CURRENT_LEVEL_PREF_NAME = "current_level_index";
 
         private GlobalGameData m_GlobalGameData;
-        private LevelObjectPool m_LevelObjectPool;
 
-        private Transform m_CurrentLevelTransform;
+        private Level m_CurrentLevel;
+        private Level m_NextLevel;
 
         private List<LevelDataSO> loadedLevels;
+        private LevelObjectPool m_LevelObjectPool;
+
+        private List<Level> levelPool;
 
         [Inject]
         public LevelManager(GlobalGameData globalGameData, LevelObjectPool levelObjectPool)
         {
             m_GlobalGameData = globalGameData;
-            m_LevelObjectPool = levelObjectPool;
 
             loadedLevels = new List<LevelDataSO>();
+            m_LevelObjectPool = levelObjectPool;
+            levelPool = new List<Level>();
         }
 
         public void Initialize()
+        {
+            LoadGame();
+        }
+
+        public void LoadGame()
         {
             LoadCurrentLevel();
             LoadNextLevel();
@@ -42,10 +51,12 @@ namespace Picker3D.LevelManagement
 
             var levelData = m_GlobalGameData.AllLevelDatas[levelDataIndex];
 
-            m_CurrentLevelTransform = CreateLevel(levelData).transform;
+            loadedLevels.Add(levelData);
+
+            m_CurrentLevel = CreateLevel(levelData);
         }
 
-        public Transform LoadNextLevel()
+        public Level LoadNextLevel()
         {
             int currentLevelIndex = GetCurrentLevelIndex() + 1;
             int levelsCount = m_GlobalGameData.AllLevelDatas.Count;
@@ -55,39 +66,52 @@ namespace Picker3D.LevelManagement
 
             loadedLevels.Add(levelData);
 
-            return CreateLevel(levelData).transform;
+            m_NextLevel = CreateLevel(levelData);
+            m_NextLevel.transform.position = new Vector3(0, 0, GetCurrentTotalLevelLength());
+
+            return m_NextLevel;
         }
 
-        public void ClearPreviousLevel()
+        public void ClearPreviousAndLoadNextLevel()
         {
-            for (int i = 0; i < m_CurrentLevelTransform.childCount; i++)
-            {
-                m_LevelObjectPool.ReturnObjectToPool(m_CurrentLevelTransform.GetChild(i).GetComponent<LevelObjectBase>(), m_CurrentLevelTransform.GetChild(i).GetComponent<LevelObjectBase>());
-            }
+            m_CurrentLevel.ClearLevel();
+            ReturnLevelToPool(m_CurrentLevel);
 
-            m_CurrentLevelTransform = LoadNextLevel();
+            m_CurrentLevel = m_NextLevel;
+            m_NextLevel = LoadNextLevel();
         }
 
-        private GameObject CreateLevel(LevelDataSO levelData)
+        public void ReinitializeLevels()
         {
-            GameObject currentLevelParent = new GameObject(levelData.name);
+            m_CurrentLevel.ResetLevel();
+        }
 
-            for (int i = 0; i < levelData.ObjectsInLevel.Count; i++)
+        private Level CreateLevel(LevelDataSO levelData)
+        {
+            Level currentLevel;
+
+            if (levelPool.Count > 0)
             {
-                var prefab = levelData.ObjectsInLevel[i].LevelObject;
-                var newPosition = levelData.ObjectsInLevel[i].Position + Vector3.forward * GetCurrentTotalLevelLength();
-                var newRotation = Quaternion.Euler(levelData.ObjectsInLevel[i].Rotation);
-
-                var newObject = m_LevelObjectPool.GetObjectFromPool(prefab);
-                if (newObject == null)
-                {
-                    newObject = Object.Instantiate(prefab, currentLevelParent.transform);
-                }
-
-                newObject.transform.SetPositionAndRotation(newPosition, newRotation);
+                currentLevel = levelPool[0];
+                levelPool.RemoveAt(0);
+                currentLevel.gameObject.SetActive(true);
+                currentLevel.gameObject.name = levelData.name;
+            }
+            else
+            {
+                currentLevel = new GameObject(levelData.name).AddComponent<Level>();
             }
 
-            return currentLevelParent;
+            currentLevel.Initialize(levelData, m_LevelObjectPool);
+
+            return currentLevel;
+        }
+
+        public void ReturnLevelToPool(Level level)
+        {
+            level.ResetLevel();
+            level.gameObject.SetActive(false);
+            levelPool.Add(level);
         }
 
         public static int GetCurrentLevelIndex()
@@ -95,13 +119,21 @@ namespace Picker3D.LevelManagement
             return PlayerPrefs.GetInt(CURRENT_LEVEL_PREF_NAME, 0);
         }
 
+        public Vector3 GetCurrentLevelStartPosition()
+        {
+            float totalZLength = GetCurrentTotalLevelLength();
+            float currentLevelZStartPosition = totalZLength - loadedLevels[loadedLevels.Count - 1].GetLevelZDistance();
+
+            return new Vector3(0f, 0f, currentLevelZStartPosition);
+        }
+
         private float GetCurrentTotalLevelLength()
         {
             float totalLength = 0f;
 
-            for (int i = 0; i < loadedLevels.Count; i++)
+            for (int i = 1; i < loadedLevels.Count; i++)
             {
-                totalLength += loadedLevels[i].GetLevelZLength();
+                totalLength += loadedLevels[i].GetLevelZDistance();
             }
 
             return totalLength;

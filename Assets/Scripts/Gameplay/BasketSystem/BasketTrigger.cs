@@ -7,7 +7,7 @@ namespace Picker3D.Gameplay.BasketSystem
     public class BasketTrigger : MonoBehaviour
     {
         private Basket m_Basket;
-        private bool m_IsTriggered = false;
+        public bool IsTriggered { get; set; } = false;
 
         private Picker m_Picker;
 
@@ -18,13 +18,13 @@ namespace Picker3D.Gameplay.BasketSystem
 
         public void OnTriggerEnter(Collider other)
         {
-            if (m_IsTriggered) return;
+            if (IsTriggered) return;
 
             Picker picker = other.GetComponentInParent<Picker>();
             if (picker == null) return;
 
             m_Picker = picker;
-            m_IsTriggered = true;
+            IsTriggered = true;
             picker.OnBasketReached(m_Basket);
             m_Basket.OnSuccess += Basket_OnSuccess;
 

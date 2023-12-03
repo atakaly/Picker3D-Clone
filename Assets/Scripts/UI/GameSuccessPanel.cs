@@ -1,9 +1,11 @@
-using Picker3D.Gameplay;
+using System;
 
 namespace Picker3D.UI
 {
     public class GameSuccessPanel : UIPanel
     {
+        public event Action OnPlayNextLevelClicked;
+
         private void Start()
         {
             Hide();
@@ -11,7 +13,7 @@ namespace Picker3D.UI
 
         public void OnPlayNextLevelClick()
         {
-            GameManager.instance.StartNextLevel();
+            OnPlayNextLevelClicked?.Invoke();
             Hide();
         }
     }

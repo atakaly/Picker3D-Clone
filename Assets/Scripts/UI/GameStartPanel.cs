@@ -1,12 +1,14 @@
-using Picker3D.Gameplay;
+using System;
 
 namespace Picker3D.UI
 {
     public class GameStartPanel : UIPanel
     {
+        public event Action OnDragged;
+
         public void StartLevel()
         {
-            GameManager.instance.StartLevel();
+            OnDragged?.Invoke();
             Hide();
         }
     }
