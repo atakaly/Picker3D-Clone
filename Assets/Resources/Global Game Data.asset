@@ -12,13 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b297979c98d654c8956f37575cf12e, type: 3}
   m_Name: Global Game Data
   m_EditorClassIdentifier: 
-  MeshTypePairs:
-  - MeshType: 1
-    Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  - MeshType: 0
-    Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  - MeshType: 2
-    Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
   AllLevelDatas:
   - {fileID: 11400000, guid: 17c8993c8508c77489164d5d8e6bb734, type: 2}
   - {fileID: 11400000, guid: 72b74e674136f5c40bf95e317666cfe5, type: 2}
+  - {fileID: 11400000, guid: 0ebfce9e711abfa4085fc7496e51619d, type: 2}
+  - {fileID: 11400000, guid: 3c315db460530324f85336fdea77e8dd, type: 2}

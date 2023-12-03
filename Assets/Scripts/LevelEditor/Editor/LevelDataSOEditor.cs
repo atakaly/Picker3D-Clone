@@ -58,6 +58,9 @@ namespace Picker3D.LevelEditor
 
         private static void ShowBasketFields(LevelDataSO levelData)
         {
+            if (levelData.ObjectsInLevel == null || levelData.ObjectsInLevel.Count == 0)
+                return;
+
             for (int i = 0; i < levelData.ObjectsInLevel.Count; i++)
             {
                 var objData = levelData.ObjectsInLevel[i];
