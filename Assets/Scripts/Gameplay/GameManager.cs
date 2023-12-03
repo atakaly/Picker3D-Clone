@@ -29,6 +29,8 @@ namespace Picker3D.Gameplay
             UIManager.SuccessPanel.OnPlayNextLevelClicked += StartNextLevel;
             UIManager.FailPanel.OnRestartLevelClicked += RestartLevel;
             UIManager.StartPanel.OnDragged += StartLevel;
+
+            UIManager.GameplayPanel.UpdateLevelText(LevelManager.GetCurrentLevelIndex() + 1);
         }
 
         public void LevelSucceed()
@@ -53,6 +55,8 @@ namespace Picker3D.Gameplay
         {
             m_Picker.MovementController.Move();
             m_LevelManager.ClearPreviousAndLoadNextLevel();
+
+            UIManager.GameplayPanel.UpdateLevelText(LevelManager.GetCurrentLevelIndex() + 1);
         }
 
         public void RestartLevel()

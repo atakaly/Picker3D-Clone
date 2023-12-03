@@ -20,6 +20,9 @@ namespace Picker3D.LevelEditor
 
             ClearLevel();
 
+            if (levelData.ObjectsInLevel == null || levelData.ObjectsInLevel.Count == 0)
+                return;
+
             foreach (var objectData in levelData.ObjectsInLevel)
             {
 #if UNITY_EDITOR

@@ -10,9 +10,57 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fbb18c618caf4f4d98efacc48117ce2, type: 3}
-  m_Name: Level 2
+  m_Name: Level 3
   m_EditorClassIdentifier: 
   ObjectsInLevel:
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: 0.8303473, y: 0.02000001, z: 163.0635}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: -2.7, y: 0.02000001, z: 182.30002}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: 3.5, y: 0.02000001, z: 210.6}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: -2, y: 0.02000001, z: 244.80002}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: -2.7, y: 0.02000001, z: 97.6}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: 2.8, y: 0.02000001, z: 63.4}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 2
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: -3.4, y: 0.02000001, z: 35.1}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 0
+  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
+      type: 3}
+    Position: {x: 0.13034725, y: 0.02000001, z: 15.863487}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 0
+    meshType: 0
   - LevelObject: {fileID: 7766721950418822496, guid: 7c27516d44b0fa149842e3bd8aa2e6ac,
       type: 3}
     Position: {x: 0, y: -0.83, z: 312.6}
@@ -25,47 +73,23 @@ MonoBehaviour:
     Rotation: {x: -0, y: 0, z: 0}
     RequiredBallCount: 0
     meshType: 0
-  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
-      type: 3}
-    Position: {x: -3.4815826, y: 0.09, z: 109.264435}
-    Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 0
-    meshType: 0
-  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
-      type: 3}
-    Position: {x: 4.032936, y: 0.09, z: 89.156}
-    Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 0
-    meshType: 0
-  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
-      type: 3}
-    Position: {x: -0.3853798, y: 0.09, z: 53.35267}
-    Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 0
-    meshType: 0
-  - LevelObject: {fileID: 5330336854258717457, guid: 7c2a21f1cb4b77b4fa852012a75a7a90,
-      type: 3}
-    Position: {x: -0.19104385, y: 0.09, z: 24.295898}
-    Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 0
-    meshType: 0
-  - LevelObject: {fileID: 1534844307596520010, guid: f8e7689c44cd6174e8199aba40cc5c0b,
-      type: 3}
-    Position: {x: 0, y: -1.25, z: 276.55}
-    Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 17
-    meshType: 0
   - LevelObject: {fileID: 168640378741247826, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
       type: 3}
-    Position: {x: 0, y: -0.83, z: 204.4}
+    Position: {x: 0, y: -0.83, z: 204.45001}
     Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 63
+    RequiredBallCount: 0
     meshType: 0
   - LevelObject: {fileID: 1534844307596520010, guid: f8e7689c44cd6174e8199aba40cc5c0b,
       type: 3}
-    Position: {x: 0, y: -1.25, z: 132}
+    Position: {x: 0, y: -1.25, z: 276.7}
     Rotation: {x: -0, y: 0, z: 0}
-    RequiredBallCount: 10
+    RequiredBallCount: 40
+    meshType: 0
+  - LevelObject: {fileID: 1534844307596520010, guid: f8e7689c44cd6174e8199aba40cc5c0b,
+      type: 3}
+    Position: {x: 0, y: -1.25, z: 132.15}
+    Rotation: {x: -0, y: 0, z: 0}
+    RequiredBallCount: 30
     meshType: 0
   - LevelObject: {fileID: 168640378741247826, guid: ee0f4c9fa604e3441b60c8f7ea04940e,
       type: 3}

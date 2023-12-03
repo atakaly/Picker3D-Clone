@@ -1,5 +1,4 @@
-﻿using Picker3D.LevelManagement;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace Picker3D.UI
@@ -8,9 +7,9 @@ namespace Picker3D.UI
     {
         [SerializeField] private TextMeshProUGUI currentLevelTextMesh;
 
-        public void UpdateLevelText()
+        public void UpdateLevelText(int level)
         {
-            currentLevelTextMesh.text = "Level " + PlayerPrefs.GetInt(LevelManager.CURRENT_LEVEL_PREF_NAME);
+            currentLevelTextMesh.text = "Level " + level.ToString();
         }
     }
 }
