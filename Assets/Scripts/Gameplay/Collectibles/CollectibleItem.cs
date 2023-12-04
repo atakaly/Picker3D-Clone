@@ -6,6 +6,8 @@ namespace Picker3D.Gameplay.Collectibles
 {
     public class CollectibleItem : MonoBehaviour, ICollectible
     {
+        public const float BASKET_MOVE_DURATION = 0.7f;
+
         [SerializeField] private CollectibleMeshChanger m_CollectibleMeshChanger;
         private Rigidbody m_Rigidbody;
 
@@ -26,7 +28,7 @@ namespace Picker3D.Gameplay.Collectibles
 
         public void MoveToBasket(Basket basket)
         {
-            m_Rigidbody.DOMoveZ(basket.transform.position.z, 0.7f);
+            transform.DOMoveZ(basket.transform.position.z, BASKET_MOVE_DURATION);
         }
 
         public void ResetItem()

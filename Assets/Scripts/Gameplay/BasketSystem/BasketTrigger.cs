@@ -1,4 +1,5 @@
-﻿using Picker3D.Gameplay.PickerSystem;
+﻿using Picker3D.Gameplay.Collectibles;
+using Picker3D.Gameplay.PickerSystem;
 using System.Collections;
 using UnityEngine;
 
@@ -33,12 +34,8 @@ namespace Picker3D.Gameplay.BasketSystem
 
         private IEnumerator BasketRoutine()
         {
-            while (m_Picker.CollectibleItems.Count > 0)
-            {
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(1f);
+            yield return new WaitUntil(() => m_Picker.CollectibleItems.Count == 0);
+            yield return new WaitForSeconds(CollectibleItem.BASKET_MOVE_DURATION + 0.5f);
 
             if(!m_Basket.IsSufficent)
             {

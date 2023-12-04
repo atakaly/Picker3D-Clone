@@ -60,7 +60,8 @@ namespace Picker3D.Gameplay.BasketSystem
         private void OnCollectibleCollect()
         {
             m_CurrentCollectedBallCount++;
-            if(IsSufficent)
+            UpdateTextMesh();
+            if (IsSufficent)
             {
                 platformObject.DOLocalMove(platformEndPosition, 1f)
                     .SetDelay(0.5f)
@@ -70,8 +71,6 @@ namespace Picker3D.Gameplay.BasketSystem
                         OnSuccess?.Invoke();
                     });
             }
-
-            UpdateTextMesh();
         }
 
         public override void OnSpawn()

@@ -40,12 +40,12 @@ namespace Picker3D.Gameplay.PickerSystem
 
         public void OnBasketReached(Basket basket)
         {
-            MovementController.Stop();
-
             for (int i = 0; i < CollectibleItems.Count; i++)
             {
                 CollectibleItems[i].MoveToBasket(basket);
             }
+
+            MovementController.Stop();
         }
 
         public void OnBasketSuccess()

@@ -121,7 +121,7 @@ namespace Picker3D.LevelManagement
         public Vector3 GetCurrentLevelStartPosition()
         {
             float totalZLength = GetCurrentTotalLevelLength();
-            float currentLevelZStartPosition = totalZLength - loadedLevels[loadedLevels.Count - 1].GetLevelZDistance();
+            float currentLevelZStartPosition = totalZLength - loadedLevels[loadedLevels.Count - 2].GetLevelZDistance();
 
             return new Vector3(0f, 0f, currentLevelZStartPosition);
         }
@@ -130,7 +130,7 @@ namespace Picker3D.LevelManagement
         {
             float totalLength = 0f;
 
-            for (int i = 1; i < loadedLevels.Count; i++)
+            for (int i = 0; i < loadedLevels.Count - 1; i++)
             {
                 totalLength += loadedLevels[i].GetLevelZDistance();
             }
