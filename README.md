@@ -6,7 +6,7 @@
 
 To add a new level, you can simply right click the project window, and create a new level.
 
-<img src="(https://github.com/atakaly/Picker3D-Clone/assets/79188326/2ecd0bd8-1b2f-4f7b-8b04-d47fa2e595f8)" width="100" height="100">
+![image](https://github.com/atakaly/Picker3D-Clone/assets/79188326/2ecd0bd8-1b2f-4f7b-8b04-d47fa2e595f8)
 
 **Also this newly created levels should be added to Global Game Data. But here you can simply find all levels and add them to the Global Game Data**
 
