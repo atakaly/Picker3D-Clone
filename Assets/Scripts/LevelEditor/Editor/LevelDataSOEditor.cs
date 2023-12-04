@@ -43,19 +43,6 @@ namespace Picker3D.LevelEditor
             }
         }
 
-        private static void SaveLevelChanges()
-        {
-            if (levelSceneEditor == null)
-                levelSceneEditor = FindObjectOfType<LevelSceneEditor>();
-            else
-                return;
-
-            currentLevelData.ObjectsInLevel = levelSceneEditor.GetInLevelObjectDatas();
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-        }
-
         private static void ShowBasketFields(LevelDataSO levelData)
         {
             if (levelData.ObjectsInLevel == null || levelData.ObjectsInLevel.Count == 0)

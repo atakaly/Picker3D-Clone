@@ -47,10 +47,5 @@ namespace Picker3D.Gameplay.PickerSystem
 
             MovementController.Stop();
         }
-
-        public void OnBasketSuccess()
-        {
-            MovementController.Move();
-        }
     }
 }

@@ -9,19 +9,16 @@ namespace Picker3D.Gameplay
     public class GameManager : MonoSingleton<GameManager>
     {
         public UIManager UIManager { get; private set; }
-        public LevelObjectPool LevelObjectPool { get; private set; }
-
-        public Picker m_Picker;
+        public Picker Picker { get; private set; }
 
         private LevelManager m_LevelManager;
 
         [Inject]
-        public void Construct(UIManager uiManager, Picker picker, LevelManager levelManager, LevelObjectPool levelObjectPool)
+        public void Construct(UIManager uiManager, Picker picker, LevelManager levelManager)
         { 
             UIManager = uiManager;
-            m_Picker = picker;
+            Picker = picker;
             m_LevelManager = levelManager;
-            LevelObjectPool = levelObjectPool;
         }
 
         private void Awake()
@@ -48,12 +45,12 @@ namespace Picker3D.Gameplay
 
         public void StartLevel()
         {
-            m_Picker.MovementController.Move();
+            Picker.MovementController.Move();
         }
 
         public void StartNextLevel()
         {
-            m_Picker.MovementController.Move();
+            Picker.MovementController.Move();
             m_LevelManager.ClearPreviousAndLoadNextLevel();
 
             UIManager.GameplayPanel.UpdateLevelText(LevelManager.GetCurrentLevelIndex() + 1);
@@ -61,7 +58,7 @@ namespace Picker3D.Gameplay
 
         public void RestartLevel()
         {
-            m_Picker.transform.position = m_LevelManager.GetCurrentLevelStartPosition();
+            Picker.transform.position = m_LevelManager.GetCurrentLevelStartPosition();
             m_LevelManager.ReinitializeLevels();
             UIManager.StartPanel.Show();
         }

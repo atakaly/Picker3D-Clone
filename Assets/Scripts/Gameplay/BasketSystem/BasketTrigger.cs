@@ -47,7 +47,7 @@ namespace Picker3D.Gameplay.BasketSystem
         {
             if (m_Picker == null) return;
 
-            m_Picker.OnBasketSuccess();
+            m_Picker.MovementController.Move();
             m_Basket.OnSuccess -= Basket_OnSuccess;
         }
     }

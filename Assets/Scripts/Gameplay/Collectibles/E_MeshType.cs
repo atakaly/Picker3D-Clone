@@ -4,6 +4,6 @@
     {
         Sphere,
         Cube,
-        Cone
+        Cylinder
     }
 }
